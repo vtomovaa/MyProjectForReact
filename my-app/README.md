@@ -1,8 +1,25 @@
-# React + Vite
+# My Orchid App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+SPA project made for educational purpose with React for FE and softuni-practice-server for BE.
 
-Currently, two official plugins are available:
+# General Information:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+$ The main purpose of the app is to view/add orchids.
+$ Guests are only able to see Home Page, All Orchids, Orchid Details and to search orchid.
+$ Logged in users have access to Add Orchid, Favorite Orchids and Profile information, as well they have the ability to Edit/Delete their own orchids and Add/Remove from favorites.
+
+```
+
+### Setup
+
+#### To run the app, in directory "Client", open terminal and run:
+
+- npm install
+- npm start
+- Which opens the app at http://localhost:3000 in your browser.
+
+#### Also should run REST_API server.
+
+- Open directory "server", open inside terminal and run:
+- node .\server.js
+- And the server will start listening at http://localhost:3030.
