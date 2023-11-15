@@ -7,6 +7,8 @@ SPA project made for educational purpose with React for FE and softuni-practice-
 $ The main purpose of the app is to view/add orchids.
 $ Guests are only able to see Home Page, All Orchids, Orchid Details and to search orchid.
 $ Logged in users have access to Add Orchid, Favorite Orchids and Profile information, as well they have the ability to Edit/Delete their own orchids and Add/Remove from favorites.
+$ View own collection "My Orchids"
+$ View own collection "My Favorite Orchids"
 
 ```
 
