@@ -10,17 +10,17 @@ $ Logged in users have access to Add Orchid, Favorite Orchids and Profile inform
 $ View own collection "My Orchids"
 $ View own collection "My Favorite Orchids"
 
-```
+``
 
 ### Setup
 
-#### To run the app, in directory "Client", open terminal and run:
+# To run the app, in directory "Client", open terminal and run:
 
 - npm install
 - npm start
 - Which opens the app at http://localhost:3000 in your browser.
 
-#### Also should run REST_API server.
+# Also should run REST_API server.
 
 - Open directory "server", open inside terminal and run:
 - node .\server.js
