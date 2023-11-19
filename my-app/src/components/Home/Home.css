@@ -1,0 +1,55 @@
+.container {
+    width: 100%;
+    height: calc(100vh - 2.6rem);
+}
+
+.home-container {
+    background-image: url(../../assets/home-orchid.jpg);
+    background-size: cover;
+    background-position: center;
+}
+
+.container h2 {
+    position: relative;
+    top: 81%;
+    text-align: center;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #a8a58a;
+    font-size: 1.5rem;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    color: white;
+}
+
+.container button {
+    border-radius: 20px;
+    background-color: #e0dcb8;
+    border: none;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    font-size: 1rem;
+    padding: 5px;
+    width: 150px;
+    transition: 0.2s;
+    cursor: pointer;
+    margin: 36px;
+    margin-bottom: 100px;
+    box-shadow: 0 10px 20px -8px rgba(0, 0, 0, .7);
+}
+
+.container button {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+}
+.container button:hover {
+    background-color: #ff008c;
+    margin-bottom: 110px;
+}
