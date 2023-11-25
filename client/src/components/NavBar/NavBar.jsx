@@ -32,9 +32,9 @@ const NavBar = () => {
       <div className="main">
         <ul>
           <li><NavLink to="/">Home</NavLink></li>
-          <a href="javascript:void(0);" className="icon">
+          {/* <a href="" className="icon">
             <i className="fa fa-bars"></i>
-          </a>
+          </a> */}
           <li><NavLink to="/all-orchids">All Orchids</NavLink></li>
           {isLogged && <li><NavLink to="/add">Add Orchid</NavLink></li>}
         </ul>
@@ -81,9 +81,9 @@ const NavBar = () => {
         )}
       </div>
 
-      <a href="javascript:void(0);" onClick={menuClick} className="icon">
-        <i className="fa fa-bars"></i>
-      </a>
+      {/* <a href="" onClick={menuClick} className="icon">
+        <i className="fa fa-bars">heloo</i>
+      </a> */}
     </div>
   );
 };

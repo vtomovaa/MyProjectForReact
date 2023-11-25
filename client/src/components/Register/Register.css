@@ -1,0 +1,195 @@
+.registerContainer{
+    /* background-color: #474E68; */
+    position: relative;
+    background-image: url('../../assets/login-registration-animation.svg');
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: calc(100vh - 5.4rem);
+}
+.form {
+    border: 2px solid #39382fcc;
+    border-radius: 1.2rem;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #6e6c5a;
+    width: 360px;
+    /* height: 500px; */
+    color: white;
+    box-shadow: 15px 15px 25px #39382fcc;
+}
+h1 {
+    margin-top: 0.7rem;
+    text-align: center;
+    /* font-weight: bold; */
+}
+
+label {
+    display: flex;
+    margin-top: 20px;
+    margin-bottom: 5px;
+    font-size: 1.1rem;
+    padding-left: 0.7rem;
+}
+input {
+    width: 20rem;
+    height: 1.9rem;
+    padding-left: 12px;
+    border: 1px solid gray;
+    border-radius: 8px;
+    margin-left: 0.5rem;
+}
+input[type="submit"] {
+    margin-left: 50%;
+    transform: translate(-50%, -50%);
+    width: 15rem;
+    height: 2rem;
+    margin-top: 40px;
+    border: none;
+    background-color: #fd0000;
+    color: white;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-align: center;
+}
+input[type="submit"]:hover:enabled {
+    background-color: #ff0000;
+    transform: translate(-50%, -67%);
+    transition: 0.2s;
+}
+p.error {
+    text-align: left;
+    color: red;
+    padding-top: 5px;
+    padding-left: 10px;
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+p.mainerror {
+        text-align: center;
+        color: red;
+        padding-top: 5px;
+        padding-left: 10px;
+        font-size: 0.9rem;
+        font-weight: bold;
+}
+p.text {
+    text-align: center;
+    padding-bottom: 15px;
+    font-size: 15px;
+    font-weight: bold;
+
+}
+.text a:hover {
+    color: #00aeff;
+}
+p>a {
+    font-weight:lighter ;
+    color: #0a5ba7;
+}
+.avatar {
+    border: none;
+    margin: 0px;
+}
+.avatarImg {
+    position: relative;
+    left: 50%;
+    margin: 0px;
+    padding: 0px;
+    transform: translate(-50%);
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+input:disabled {
+    border: 1px solid #999999;
+  background-color: #cccccc;
+  /* color: #666666; */
+}
+.lds-ellipsis {
+    position: absolute;
+    top: -10%;
+    left: 54%;
+
+}
+@media only screen and (max-width: 740px) {
+    .form {
+        width: 85%;
+    }
+    input {
+        width: 90%;
+    }
+}
+@media only screen and (max-height: 700px) {
+    .form h1 {
+        font-size: 1.5rem;
+    }
+    label {
+        font-size: 0.9rem;
+        padding-left: 0.7rem;
+        margin-top: 7px;
+    }
+    input {
+        padding: 10px;
+        width: 90%;
+        height: 0.6rem;
+        padding-left: 12px;
+        padding-right: 12px;
+        border-radius: 8px;
+        margin-left: 0.5rem;
+        margin-right: 0.5rem;
+    }
+    input[type="submit"] {
+        font-size: 0.8rem;
+        padding-top: 9px;
+    }
+    p.text {
+        font-size: 0.7rem;
+    }
+}
+@media only screen and (max-height: 560px) {
+    .form h1 {
+        font-size: 1rem;
+    }
+    label {
+        font-size: 0.7rem;
+        padding-left: 0.7rem;
+        margin-top: 5px;
+    }
+    input {
+        padding: 10px;
+        width: 90%;
+        height: 0.4rem;
+        padding-left: 12px;
+        padding-right: 12px;
+        border-radius: 8px;
+        margin-left: 0.5rem;
+        margin-right: 0.5rem;
+    }
+    input[type="submit"] {
+        font-size: 0.6rem;
+        padding-top: 9px;
+    }
+    p.text {
+        font-size: 0.5rem;
+        padding: 5px;
+    }
+    input.avatar {
+        padding-top: 3px;
+        font-size: 0.6rem;
+    }
+    .avatarImg {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+    }
+    p.error {
+        font-size: 0.5rem;
+        padding-top: 2px;
+    }
+    input.regBtn {
+        margin-top: 30px;
+    }
+}

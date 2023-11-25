@@ -1,0 +1,116 @@
+.loginContainer{
+    /* background-color: #474E68; */
+    background-image:url('../../assets/login-registration-animation.svg');
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: calc(100vh - 5.4rem);
+    position: relative;
+}
+.form {
+    border: 2px solid #39382fcc;
+    border-radius: 1.2rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #6e6c5a;
+    width: 360px;
+    color: white;
+    box-shadow: 15px 15px 25px #39382fcc;
+}
+h1 {
+    margin-top: 0.7rem;
+    text-align: center;
+    /* font-weight: bold; */
+}
+
+label {
+    display: flex;
+    margin-top: 20px;
+    margin-bottom: 5px;
+    font-size: 1.1rem;
+    padding-left: 0.7rem;
+}
+input {
+    text-align: center;
+    width: 20rem;
+    height: 1.9rem;
+    padding-left: 12px;
+    border: none;
+    border: 1px solid gray;
+    border-radius: 8px;
+    margin-left: 0.7rem;
+}
+input[type="submit"] {
+    margin-left: 50%;
+    transform: translate(-50%, -50%);
+    width: 15rem;
+    height: 2rem;
+    margin-top: 40px;
+    border: none;
+    /* background-color: #e26565; */
+    background-color: #00aeff;
+    color: white;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+input[type="submit"]:hover:enabled {
+    background-color: #ff008c;
+    transform: translate(-50%, -67%);
+    transition: 0.2s;
+
+}
+p.error {
+    text-align: left;
+    color: red;
+    padding-left: 10px;
+    padding-top: 5px;
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+p.mainerror {
+    text-align: center;
+    color: red;
+    padding-top: 5px;
+    padding-left: 10px;
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+p.text {
+    text-align: center;
+    padding-top: 2px;
+    padding-bottom: 20px;
+    font-size: 15px;
+    font-weight: bold;
+
+}
+.text a:hover {
+    color: #00aeff;
+}
+p>a {
+    font-weight:lighter ;
+    color: #0a5ba7;
+}
+input:disabled {
+    border: 1px solid #999999;
+  background-color: #cccccc;
+  /* color: #666666; */
+}
+@media only screen and (max-width: 740px) {
+    .form {
+        width: 85%;
+        left: 50%;
+    }
+    input {
+        width: 90%;
+        position: relative;
+        left: 5%;
+        margin: 0px;
+        padding: 0px;
+    }
+    label {
+        margin-left: 20px;
+
+    }
+}
