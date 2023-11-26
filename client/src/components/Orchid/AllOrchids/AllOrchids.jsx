@@ -1,7 +1,7 @@
 import React from 'react';
 import OrchidDetailsCard from '../OrchidDetailsCard/OrchidDetailsCard.jsx';
 import "./AllOrchids.css";
-import orchids from "../../../../server/data/orchids.json";
+import orchids from "../../../../../server/data/orchids.json";
 
 const AllOrchids = () => {
    

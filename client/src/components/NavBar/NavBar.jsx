@@ -47,7 +47,7 @@ const NavBar = () => {
               <div className="dropdown-content">
                 <NavLink to="/my-orchids">My Orchids</NavLink>
                 <NavLink to="/favorites-profile">My Favorite Orchids</NavLink>
-                <NavLink to="/profile-info">Profile Info</NavLink>
+                <NavLink to="/profile">Profile Info</NavLink>
               </div>
             </div>
           ) : (
@@ -56,18 +56,20 @@ const NavBar = () => {
               <li><NavLink to="/register">Register</NavLink></li>
             </>
           )}
-          {isAuthenticated && <li><a onClick={logout}>Logout</a></li>}
+          <NavLink to="">
+          {isAuthenticated && <li><div onClick={logout}>Logout</div></li>}
+          </NavLink>
         </ul>
       </div>
 
-      <div className="mobile" style={view ? {} : { display: 'none' }}>
+      {/* <div className="mobile" style={view ? {} : { display: 'none' }}>
         <NavLink to="/">Home</NavLink>
         <NavLink to="/all-orchids">All Orchids</NavLink>
         {isAuthenticated && <NavLink to="/add">Add Orchid</NavLink>}
         {isAuthenticated && <NavLink to="/profile">My Orchids</NavLink>}
         {isAuthenticated && <NavLink to="/favorites-profile">My Favorite Orchids</NavLink>}
         {isAuthenticated && <NavLink to="/profile-info">Profile Info</NavLink>}
-      </div>
+      </div> */}
 
       {/* <div className="authorization">
         {!isAuthenticated ? (

@@ -1,0 +1,415 @@
+.orchid-details-container {
+    background: linear-gradient(to right, #e0dcb8, #39382f58);
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    min-height: calc(100vh - 5.4rem);
+    position: relative;
+}
+
+.orchid-details-container h2 {
+    position: absolute;
+    top: 80%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 1.5rem;
+}
+.orchid-details-container .title {
+    width: 100%;
+    height: 60px;
+    text-align: center;
+    /* background-color: #2ebf91; */
+    background-image: linear-gradient(to right, #ff008cbe, #ff008c4c);
+    /* color: rgb(2, 0, 0); */
+    color: #a8a58a;
+}
+.orchid-details-container .title h1 {
+    padding: 10px;
+
+}
+
+.orchid-details-container .orchid {
+    /* border: 2px solid rgb(32, 32, 32); */
+    border-radius: 1.2rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-40%, -40%);
+    background-color: #a8a58a;
+    width: 500px;
+    min-height: 600px;
+    color: white;
+    box-shadow: 0px 0px 20px 15px #7e7b677a;
+    word-wrap: break-word;
+}
+.orchid-details-container .ownerSpan:hover {
+    cursor: pointer;
+    transition: 0.2s;
+    color: #fc5555;
+    /* font-size: 1.7rem; */
+}
+.orchid-details-container .imageurl {
+    font-size: 1.1rem;
+    padding-left: 12px;
+    margin-top: 10px;
+    margin-bottom: 2.5px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+.orchid-details-container #upload {
+    margin-left: 20px;
+}
+.orchid-details-container .hidden {
+    display: none;
+}
+.orchid-details-container #file {
+    display: none;
+    font-size: 1rem;
+    padding-left: 12px;
+    font-weight: bold;
+}
+.orchid-details-container img {
+    border-top-left-radius: 1.2rem;
+    border-top-right-radius: 1.2rem;
+    width: 500px;
+    height: 281.25px;
+    object-fit:cover;
+   object-position:50% 50%;
+   /* transition: all 0.1s ease-out; */
+}
+/* img:hover {
+    transform: scale(2);
+  } */
+.orchid-details-container article h1 {
+    font-size: 1.5rem;
+    padding: 20px;
+}
+.orchid-details-container article h3 {
+    padding: 3px;
+}
+.orchid-details-container .price {
+    position: absolute;
+    width: 100px;
+    text-align: center;
+    background-color: #434343;
+    top: 44.5%;
+    right: 10%;
+    color: white;
+    font-weight: bold;
+    border-radius: 10px;
+    padding: 5px;
+}
+.orchid-details-container .info {
+    /* background-image: linear-gradient(to right, #8360c3, #2ebf91); */
+    height: calc(300px - 190px);
+}
+.orchid-details-container h3 {
+    margin: 6px;
+    padding-right: 10px;
+    font-size: 1.5rem;
+    font-weight: lighter;
+    font-style: italic;
+}
+
+.orchid-details-container .buttons {
+    /* margin-bottom: 20px; */
+    /* display: flex; */
+    /* justify-content: space-evenly; */
+    min-width: max-content;
+    position: absolute;
+    bottom: 0px;
+    left: 50%;
+    transform: translate(-50%);
+    /* margin: 10px; */
+}
+.orchid-details-container .buttons button {
+    /* margin-top: 5px; */
+    margin: 10px 10px;
+    padding: 10px 20px;
+    border: 2px solid white;
+    background-color: #bc1f76ad;
+    color: white;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+.orchid-details-container .buttons button:hover {
+    transition: 0.5s;
+    background-color: #ff008c;
+    border: 2px solid #ff008c;
+}
+.orchid-details-container #added {
+    border-color: rgb(12, 122, 18);
+    background-color: rgb(12, 122, 18);
+}
+.orchid-details-container #remove {
+    border-color: red;
+    background-color: red;
+}
+.orchid-details-container span {
+    color: #bc1f76ad;
+    font-weight: bold;
+    font-style: italic;
+    
+}
+.orchid-details-container input[type="radio"] {
+    height: 15px;
+    margin-left: 10px;
+}
+.orchid-details-container .added {
+    position: absolute;
+    left: 95%;
+    top: -3%;
+    width: 30px;
+    border-radius: 15px;
+    padding: 6px;
+    padding-right: 9px;
+    color: white;
+    text-align: center;
+    font-size: 25px;
+    background-color: rgb(108, 177, 5);
+}
+
+.orchid-details-container .form {
+    border: 2px solid rgb(32, 32, 32);
+    border-radius: 1.2rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgb(32, 32, 32);
+    width: 360px;
+    /* height: 600px; */
+    color: white;
+    box-shadow: 15px 15px 25px rgb(32, 32, 32);
+}
+.orchid-details-container .form .h1 {
+    margin-top: 0.7rem;
+    text-align: center;
+    /* font-weight: bold; */
+}
+
+.orchid-details-container .form label {
+    display: flex;
+    margin-top: 10px;
+    margin-bottom: 2.5px;
+    font-size: 1.1rem;
+    padding-left: 0.7rem;
+}
+.orchid-details-container .form input {
+    width: 20rem;
+    height: 1.9rem;
+    padding-left: 12px;
+    border: none;
+    border: 1px solid gray;
+    border-radius: 8px;
+    margin-left: 0.5rem;
+}
+.orchid-details-container .form input[type="submit"] {
+    margin-left: 50%;
+    transform: translate(-50%, -50%);
+    width: 15rem;
+    height: 2rem;
+    margin-top: 40px;
+    border: none;
+    background-color: #e20404;
+    color: white;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+.orchid-details-container .form input[type="submit"]:hover:enabled {
+    background-color: #fd0000;
+    opacity: 0.5;
+}
+/* .orchid-details-container .error { 
+    color: red;
+    font-weight: bold;
+    font-style: italic;
+    padding-left: 1rem;
+    top: 10px;
+} */
+.orchid-details-container .form .error {
+    text-align: left;
+    color: red;
+    padding-left: 10px;
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+.orchid-details-container .form .mainError {
+    text-align: center;
+    color: red;
+    /* padding-left: 10px; */
+    margin-top: 10px;
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+.orchid-details-container .form input:disabled {
+    border: 1px solid #999999;
+    background-color: #cccccc;
+    /* color: #666666; */
+}
+.orchid-details-container .form .specialform {
+    min-height: 300px;
+}
+.orchid-details-container .form .specialform .price {
+    top: 18%;
+}
+.orchid-details-container .form .image {
+    z-index: -1;
+    position: relative;
+}
+.orchid-details-container .form .pages {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 25px;
+    background-color: gray;
+    text-align: center;
+    width: 45px;
+    height: 281.25px;
+    position: absolute;
+    opacity: 0.5;
+    cursor: pointer;
+}
+.orchid-details-container .form .pages:hover {
+    opacity: 0.9;
+    transition: 0.3s;
+}
+.orchid-details-container .form .disabledpage:hover {
+    opacity: 0.5;
+}
+.orchid-details-container .form .left {
+    top: 0%;
+    border-top-left-radius: 1.2rem;
+}
+.orchid-details-container .form .right {
+    border-top-right-radius: 1.2rem;
+    right: 0%; 
+    top: 0%;
+}
+
+@media only screen and (max-width: 740px) {
+    .orchid {
+        font-size: 1rem;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: #a8a58a;
+        width: 85%;
+        min-height: 550px;
+    }
+    
+    img {
+        border-top-left-radius: 1.2rem;
+        border-top-right-radius: 1.2rem;
+        width: 100%;
+        height: 281.25px;
+        object-fit:cover;
+       object-position:50% 50%;
+    }
+    .info h3, h1, span, p, button {
+        font-size: 1rem;
+    }
+    .title {
+        height: 30px;
+        padding-bottom: 10px;
+    }
+    .price {
+        top: 48.5%;
+    }
+}
+@media only screen and (max-height: 770px) {
+    .info h3, span, p, button {
+        font-size: 1.2rem;
+    }
+    .info h1 {
+        padding: 7px;
+    }
+    .orchid {
+        width: 500px;
+        min-height: 530px;
+    }
+    .buttons button {
+        margin-top: 0px;
+        padding: 10px 20px;
+        font-size: 1rem;
+    }
+    .price {
+        top: 54%
+    }
+}
+@media only screen and (max-height: 690px) {
+    .info h3, span, p, button {
+        font-size: 0.8rem;
+    }
+    .pages {
+        height: 200px;
+    }
+    .orchid {
+        width: 500px;
+        min-height: 410px;
+    }
+    .buttons button {
+        margin-top: 0px;
+        padding: 7px 15px;
+        font-size: 0.8rem;
+    }
+    .price {
+        top: 46%
+    }
+    img {
+        width: 500px;
+        height: 200px;
+    }
+}
+@media only screen and (max-height: 590px) {
+    .info h3, span, p, button {
+        font-size: 0.8rem;
+    }
+    .pages {
+        height: 150px;
+    }
+    .orchid {
+        width: 400px;
+        min-height: 360px;
+    }
+    .buttons button {
+        margin-top: 0px;
+        padding: 7px 15px;
+        font-size: 0.8rem;
+    }
+    .price {
+        top: 46%
+    }
+    img {
+        width: 400px;
+        height: 150px;
+    }
+}
+@media only screen and (max-height: 530px) {
+    .info h3, span, p, button {
+        font-size: 0.5rem;
+    }
+    .pages {
+        height: 150px;
+    }
+    .orchid {
+        width: 400px;
+        min-height: 320px;
+    }
+    .buttons button {
+        margin-top: 0px;
+        padding: 7px 15px;
+        font-size: 0.5rem;
+    }
+    .price {
+        top: 46%
+    }
+    img {
+        width: 400px;
+        height: 150px;
+    }
+}
