@@ -1,17 +1,16 @@
 import { NavLink } from "react-router-dom";
 import "./NavBar.css";
 import { useState } from "react";
+import { useAuthContext } from "../../context/AuthContext";
 
 const NavBar = () => {
 
   const [view, setView] = useState(false);
-
-  const isLogged = false;
-
+  const { isAuthenticated, onLogout } = useAuthContext(); 
   const logout = () => {
     //when we have server
-    //userService.logout();
-    //history.push('/');
+    
+    onLogout();
   };
 
   const menuClick = () => {
@@ -36,13 +35,13 @@ const NavBar = () => {
             <i className="fa fa-bars"></i>
           </a> */}
           <li><NavLink to="/all-orchids">All Orchids</NavLink></li>
-          {isLogged && <li><NavLink to="/add">Add Orchid</NavLink></li>}
+          {isAuthenticated && <li><NavLink to="/add">Add Orchid</NavLink></li>}
         </ul>
       </div>
       
       <div className="auth">
         <ul>
-          {isLogged ? (
+          {isAuthenticated ? (
             <div className="dropdown">
               <button className="dropbtn">Profile. . .</button>
               <div className="dropdown-content">
@@ -57,21 +56,21 @@ const NavBar = () => {
               <li><NavLink to="/register">Register</NavLink></li>
             </>
           )}
-          {isLogged && <li><a onClick={logout}>Logout</a></li>}
+          {isAuthenticated && <li><a onClick={logout}>Logout</a></li>}
         </ul>
       </div>
 
       <div className="mobile" style={view ? {} : { display: 'none' }}>
         <NavLink to="/">Home</NavLink>
         <NavLink to="/all-orchids">All Orchids</NavLink>
-        {isLogged && <NavLink to="/add">Add Orchid</NavLink>}
-        {isLogged && <NavLink to="/profile">My Orchids</NavLink>}
-        {isLogged && <NavLink to="/favorites-profile">My Favorite Orchids</NavLink>}
-        {isLogged && <NavLink to="/profile-info">Profile Info</NavLink>}
+        {isAuthenticated && <NavLink to="/add">Add Orchid</NavLink>}
+        {isAuthenticated && <NavLink to="/profile">My Orchids</NavLink>}
+        {isAuthenticated && <NavLink to="/favorites-profile">My Favorite Orchids</NavLink>}
+        {isAuthenticated && <NavLink to="/profile-info">Profile Info</NavLink>}
       </div>
 
-      <div className="authorization">
-        {!isLogged ? (
+      {/* <div className="authorization">
+        {!isAuthenticated ? (
           <>
             <NavLink to="/login">Login</NavLink>
             <NavLink to="/register">Register</NavLink>
@@ -79,7 +78,7 @@ const NavBar = () => {
         ) : (
           <NavLink to="/logout" onClick={logout}>Logout</NavLink>
         )}
-      </div>
+      </div> */}
 
       {/* <a href="" onClick={menuClick} className="icon">
         <i className="fa fa-bars">heloo</i>

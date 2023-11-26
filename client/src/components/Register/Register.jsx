@@ -1,69 +1,24 @@
-import { useState } from "react";
+import { useForm } from "../../hooks/useForm";
+
+import { useAuthContext } from "../../context/authContext.jsx";
 import "./Register.css";
 
 const Register=()=> {
-    const [form, setForm] = useState({
-        username: '',
-        email: '',
-        password: '',
-        rePass: '',
-      });
-    
-      const [file, setFile] = useState('');
-      const [errors, setErrors] = useState('');
-      const [isLoading, setIsLoading] = useState(false);
-    
-      const onChange = (event) => {
-        const { name, value } = event.target;
-    
-        if (name === 'avatar') {
-          setFile(URL.createObjectURL(event.target.files[0]));
-        } else {
-          setForm({
-            ...form,
-            [name]: value,
-          });
-        }
-      };
-    
-      const register = (event) => {
-        event.preventDefault();
-        // Implement your registration logic here
-    
-        // Example: Check form fields, show errors if any
-        if (!form.username || !form.email || !form.password || !form.rePass) {
-          setErrors('All fields are required.');
-          return;
-        }
-    
-        if (form.password !== form.rePass) {
-          setErrors('Passwords must be equal.');
-          return;
-        }
-    
-        // Simulate loading state
-        setIsLoading(true);
-    
-        // Simulate API call or any asynchronous operation
-        setTimeout(() => {
-          // Check registration details, show errors if any (replace with your logic)
-          if (form.email === 'example@example.com') {
-            setErrors('Email already exists.');
-          } else {
-            // Successful registration, redirect or perform other actions
-            console.log('Registration successful');
-          }
-    
-          // Reset loading state
-          setIsLoading(false);
-        }, 1000);
-      };
-    
+    const { onRegisterSubmit, serverErrors } = useAuthContext(); 
+
+    const { values, onChange, onSubmit } = useForm(onRegisterSubmit, {
+      username: "",
+      email: "",
+      password: "",
+      rePass: "",
+      file: "",
+    });
+
       return (
         <div className="registerContainer">
           <div className="form">
             <h1>Register</h1>
-            <form onSubmit={register}>
+            <form onSubmit={onSubmit}>
               <label>Avatar(optional)</label>
               <input
                 className="avatar"
@@ -71,20 +26,20 @@ const Register=()=> {
                 name="avatar"
                 onChange={onChange}
               />
-              {file && <img id="avatar" src={file} alt="avatar" />}
+              {values.file && <img id="avatar" src={values.file} alt="avatar" />}
     
               <label>Username</label>
               <input
                 type="text"
                 placeholder="Username..."
                 name="username"
-                value={form.username}
+                value={values.username}
                 onChange={onChange}
               />
-              {form.username && (
+              {values.username && (
                 <div>
-                  <p className="error">{form.username.length < 4 && 'Username should have 4 characters!'}</p>
-                  <p className="error">{form.username.length > 10 && "Username shouldn't have more than 10 characters!"}</p>
+                  <p className="error">{values.username.length < 4 && 'Username should have 4 characters!'}</p>
+                  <p className="error">{values.username.length > 10 && "Username shouldn't have more than 10 characters!"}</p>
                 </div>
               )}
     
@@ -93,12 +48,12 @@ const Register=()=> {
                 type="text"
                 placeholder="Email..."
                 name="email"
-                value={form.email}
+                value={values.email}
                 onChange={onChange}
               />
-              {form.email && (
+              {values.email && (
                 <div>
-                  <p className="error">{!form.email.includes('@') && 'Email should be valid!'}</p>
+                  <p className="error">{!values.email.includes('@') && 'Email should be valid!'}</p>
                 </div>
               )}
     
@@ -107,13 +62,13 @@ const Register=()=> {
                 type="password"
                 placeholder="Password..."
                 name="password"
-                value={form.password}
+                value={values.password}
                 onChange={onChange}
               />
-              {form.password && (
+              {values.password && (
                 <div>
-                  <p className="error">{form.password.length < 6 && 'Password should have more than 6 characters!'}</p>
-                  <p className="error">{form.password.length > 12 && 'Password should have less than 12 characters!'}</p>
+                  <p className="error">{values.password.length < 6 && 'Password should have more than 6 characters!'}</p>
+                  <p className="error">{values.password.length > 12 && 'Password should have less than 12 characters!'}</p>
                 </div>
               )}
     
@@ -122,19 +77,19 @@ const Register=()=> {
                 type="password"
                 placeholder="Repeat Password..."
                 name="rePass"
-                value={form.rePass}
+                value={values.rePass}
                 onChange={onChange}
               />
-              {form.rePass && (
+              {values.rePass && (
                 <div>
-                  <p className="error">{form.rePass !== form.password && 'Passwords must be equal!'}</p>
+                  <p className="error">{values.rePass !== values.password && 'Passwords must be equal!'}</p>
                 </div>
               )}
     
-              {errors && <p className="mainerror">{errors}</p>}
+              {/* {errors && <p className="mainerror">{errors}</p>} */}
     
               <input
-                disabled={form.email === "" || form.password === "" || isLoading}
+                disabled={values.email === "" || values.password === ""}
                 type="submit"
                 value="Register"
                 className="regBtn"
@@ -143,14 +98,6 @@ const Register=()=> {
     
             <p className="text">Already have an account? <a href="/login">Login here</a></p>
     
-            {isLoading && (
-              <div className="lds-ellipsis">
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-              </div>
-            )}
           </div>
         </div>
       );

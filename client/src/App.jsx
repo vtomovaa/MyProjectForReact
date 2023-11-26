@@ -7,10 +7,12 @@ import NavBar from './components/NavBar/NavBar.jsx'
 import Login from './components/Login/Login.jsx'
 import Register from './components/Register/Register.jsx'
 import AllOrchids from "./components/AllOrchids/AllOrchids.jsx";
+import { AuthProvider } from "./context/authContext.jsx";
 
 const App =()=> {
 
   return (
+    <AuthProvider>
     <BrowserRouter>
     <NavBar />
     <Routes>
@@ -22,6 +24,7 @@ const App =()=> {
       <Route path='/all-orchids' element={<AllOrchids />}/>
     </Routes>
     </BrowserRouter>
+    </AuthProvider>
   )
 }
 
