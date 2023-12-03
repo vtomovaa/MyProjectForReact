@@ -45,20 +45,20 @@ const AddOrchird = () => {
           />
 
           <label className="sign-label">Image(optional)</label>
-          <input className="avatar" type="file" name="imageUrl" />
+          <input className="add-form-input" type="text" name="imageUrl" placeholder="Enter orchid imageUrl..."/>
 
           <label className="add-form-title">Orchid Type</label>
           <input
             className="add-form-input"
             type="text"
-            name="name"
+            name="type"
             placeholder="Enter orchid type..."
             required
             minLength="3"
             maxLength="20"
           />
 
-          <label htmlFor="summary">Summary:</label>
+          <label htmlFor="summary">Description:</label>
           <textarea
             name="description"
             className=" add-form-input form-textarea"

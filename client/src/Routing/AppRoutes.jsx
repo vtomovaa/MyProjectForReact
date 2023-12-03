@@ -11,7 +11,8 @@ import AuthGuard from "../components/guards/AuthGuard";
 import Footer from "../components/Footer/Footer";
 import Logout from "../components/Logout/Logout";
 import Profile from "../components/Profile/Profile";
-import AddOrchird from "../components/Orchid/AddOrchid/AddOrchid";
+import AddOrchid from "../components/Orchid/AddOrchid/AddOrchid";
+import OrchidEdit from "../components/Orchid/OrchidEdit/OrchidEdit.jsx";
 
 const routes = [
   {
@@ -58,8 +59,8 @@ const AppRoutes = () => {
       <Routes element={<AuthGuard />}>
         {generateRoutes()}
         <Route>
-          <Route path={Path.CreateOrchid} element={<AddOrchird />} />
-          {/* <Route path={Path.OrchidEdit} element={<OrchitEdit />} /> */}
+          <Route path={Path.CreateOrchid} element={<AddOrchid />} />
+          <Route path={Path.OrchidEdit} element={<OrchidEdit />} />
           <Route path={Path.Logout} element={<Logout />} />
           <Route path={Path.Profile} element={<Profile />} />
         </Route>

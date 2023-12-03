@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import "./OrchidDetailsCard.css";
 
 const OrchidDetailsCard = ( props ) => {
-  const {name, imageUrl, _id} = props;
+  const {make, imageUrl, _id} = props;
   return (
     <article>
       {imageUrl && (
@@ -14,7 +14,7 @@ const OrchidDetailsCard = ( props ) => {
       )}
 
       <div className="info">
-        <h1>{name}</h1>
+        <h1>{make}</h1>
         <button className='btns'><Link className='details-card-btn' to={`/all-orchids/${_id}`}>Details</Link></button>
       </div>
     </article>

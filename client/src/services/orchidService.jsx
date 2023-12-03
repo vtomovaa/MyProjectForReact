@@ -33,6 +33,7 @@ export const create = async (gameData) => {
 };
 
 export const edit = async (orchidId, gameData) => {
+  console.log(gameData);
   const result = await request.put(`${baseUrl}/${orchidId}`, gameData);
 
   return result;
