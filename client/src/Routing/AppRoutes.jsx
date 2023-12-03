@@ -13,6 +13,7 @@ import Logout from "../components/Logout/Logout";
 import Profile from "../components/Profile/Profile";
 import AddOrchid from "../components/Orchid/AddOrchid/AddOrchid";
 import OrchidEdit from "../components/Orchid/OrchidEdit/OrchidEdit.jsx";
+import MyOrchids from "../components/MyOrchids/MyOrchids.jsx";
 
 const routes = [
   {
@@ -63,6 +64,7 @@ const AppRoutes = () => {
           <Route path={Path.OrchidEdit} element={<OrchidEdit />} />
           <Route path={Path.Logout} element={<Logout />} />
           <Route path={Path.Profile} element={<Profile />} />
+          <Route path={Path.MyOrchids} element={<MyOrchids />} />
         </Route>
       </Routes>
       <Footer />

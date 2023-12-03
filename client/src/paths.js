@@ -4,6 +4,7 @@ const Path = {
     Register: '/register',
     Logout: '/logout',
     AllOrchids: '/all-orchids',
+    MyOrchids: '/my-orchids',
     Profile: '/profile',
     SingleOrchid: "/all-orchids/:orchidId",
     OrchidEdit: "/all-orchids/:orchidId/edit",

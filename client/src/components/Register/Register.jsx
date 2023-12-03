@@ -12,7 +12,7 @@ const Register = () => {
     email: "",
     password: "",
     rePass: "",
-    file: "",
+    avatar: "",
   });
 
   const disabled =
@@ -29,12 +29,12 @@ const Register = () => {
         <form onSubmit={onSubmit}>
           <label>Avatar(optional)</label>
           <input
-            className="avatar"
-            type="file"
+            type="text"
             name="avatar"
+            value= {values.avatar}
             onChange={onChange}
+            placeholder="Avatar..."
           />
-          {values.file && <img id="avatar" src={values.file} alt="avatar" />}
 
           <label>Username</label>
           <input

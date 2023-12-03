@@ -4,19 +4,12 @@ export const useForm = (onSubmitHandler, initialValues) => {
   const [values, setValues] = useState(initialValues);
 
   const onChange = (e) => {
-    const { name, value, files } = e.target;
+    const { name, value } = e.target;
 
-    if (name === "avatar") {
-        setValues({
-        ...values,
-        file: files[0],
-      });
-    } else {
         setValues({
         ...values,
         [name]: value,
       });
-    }
   };
 
   const onSubmit = (e) => {

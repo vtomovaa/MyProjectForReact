@@ -1,7 +1,7 @@
 import { useContext, useState } from "react";
 import "./OrchidDetails.css";
 import orchids from "../../../../../server/data/orchids.json";
-import { NavLink, Navigate, useParams } from "react-router-dom";
+import { NavLink, useNavigate, useParams } from "react-router-dom";
 import AuthContext from "../../../context/AuthContext";
 import * as orchidService from "../../../services/orchidService.jsx";
 import Path from "../../../paths.js";
@@ -22,6 +22,7 @@ const OrchidDetails = () => {
   }, []);
 
   const params = useParams();
+  const navigate = useNavigate();
   const { email } = useContext(AuthContext);
 
   const [imageUrl, setImageUrl] = useState("");
@@ -40,9 +41,10 @@ const OrchidDetails = () => {
     );
 
     if (hasConfirmed) {
+      console.log(orchid?._id);
       await orchidService.remove(orchid?._id);
 
-      Navigate(Path.AllOrchids);
+      navigate(Path.AllOrchids);
     }
   };
 

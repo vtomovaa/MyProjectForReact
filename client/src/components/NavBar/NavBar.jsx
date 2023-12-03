@@ -48,7 +48,7 @@ const NavBar = () => {
               <button className="dropbtn btns">Profile. . .</button>
               <div className="dropdown-content">
                 <NavLink to="/my-orchids">My Orchids</NavLink>
-                <NavLink to="/profile-info">Profile Info</NavLink>
+                <NavLink to="/profile">Profile Info</NavLink>
               </div>
             </div>
           ) : (
