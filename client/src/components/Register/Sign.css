@@ -1,5 +1,4 @@
-.registerContainer{
-    /* background-color: #474E68; */
+.sign-container{
     position: relative;
     background-image: url('../../assets/login-registration-animation.svg');
     background-size: cover;
@@ -7,7 +6,8 @@
     width: 100%;
     height: calc(100vh - 5.4rem);
 }
-.form {
+
+.sign-form {
     border: 2px solid #39382fcc;
     border-radius: 1.2rem;
     position: relative;
@@ -16,14 +16,13 @@
     transform: translate(-50%, -50%);
     background-color: #6e6c5a;
     width: 360px;
-    /* height: 500px; */
     color: white;
     box-shadow: 15px 15px 25px #39382fcc;
 }
-h1 {
+
+.sign-mark {
     margin-top: 0.7rem;
     text-align: center;
-    /* font-weight: bold; */
 }
 
 label {
@@ -33,7 +32,9 @@ label {
     font-size: 1.1rem;
     padding-left: 0.7rem;
 }
+
 input {
+    text-align: center;
     width: 20rem;
     height: 1.9rem;
     padding-left: 12px;
@@ -41,6 +42,7 @@ input {
     border-radius: 8px;
     margin-left: 0.5rem;
 }
+
 input[type="submit"] {
     margin-left: 50%;
     transform: translate(-50%, -50%);
@@ -54,55 +56,35 @@ input[type="submit"] {
     font-weight: bold;
     text-align: center;
 }
+
 input[type="submit"]:hover:enabled {
     background-color: #ff0000;
     transform: translate(-50%, -67%);
     transition: 0.2s;
 }
-p.error {
-    text-align: left;
-    color: red;
-    padding-top: 5px;
-    padding-left: 10px;
-    font-size: 0.9rem;
-    font-weight: bold;
-}
-p.mainerror {
-        text-align: center;
-        color: red;
-        padding-top: 5px;
-        padding-left: 10px;
-        font-size: 0.9rem;
-        font-weight: bold;
-}
-p.text {
+
+.sign-info {
     text-align: center;
-    padding-bottom: 15px;
+    padding-top: 2px;
+    padding-bottom: 20px;
     font-size: 15px;
     font-weight: bold;
-
 }
-.text a:hover {
+
+.sign-info a:hover {
     color: #00aeff;
 }
-p>a {
+
+.sign-info>a {
     font-weight:lighter ;
     color: #0a5ba7;
 }
+
 .avatar {
     border: none;
     margin: 0px;
 }
-.avatarImg {
-    position: relative;
-    left: 50%;
-    margin: 0px;
-    padding: 0px;
-    transform: translate(-50%);
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-}
+
 input:disabled {
     border: 1px solid #999999;
   background-color: #cccccc;
@@ -114,16 +96,20 @@ input:disabled {
     left: 54%;
 
 }
+
+
+
 @media only screen and (max-width: 740px) {
-    .form {
+    .sign-form {
         width: 85%;
     }
     input {
         width: 90%;
     }
 }
+
 @media only screen and (max-height: 700px) {
-    .form h1 {
+    .sign-form .sign-mark {
         font-size: 1.5rem;
     }
     label {
@@ -134,7 +120,7 @@ input:disabled {
     input {
         padding: 10px;
         width: 90%;
-        height: 0.6rem;
+        height: 0.rem;
         padding-left: 12px;
         padding-right: 12px;
         border-radius: 8px;
@@ -145,12 +131,13 @@ input:disabled {
         font-size: 0.8rem;
         padding-top: 9px;
     }
-    p.text {
+    .sign-info {
         font-size: 0.7rem;
     }
 }
+
 @media only screen and (max-height: 560px) {
-    .form h1 {
+    .sign-form .sign-mark {
         font-size: 1rem;
     }
     label {
@@ -172,7 +159,7 @@ input:disabled {
         font-size: 0.6rem;
         padding-top: 9px;
     }
-    p.text {
+    .sign-info {
         font-size: 0.5rem;
         padding: 5px;
     }
@@ -185,10 +172,7 @@ input:disabled {
         height: 60px;
         border-radius: 50%;
     }
-    p.error {
-        font-size: 0.5rem;
-        padding-top: 2px;
-    }
+
     input.regBtn {
         margin-top: 30px;
     }

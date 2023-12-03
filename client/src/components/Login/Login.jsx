@@ -1,23 +1,20 @@
-import { useState } from "react";
-import { useForm } from "../../hooks/useForm"
-import { useAuthContext } from "../../context/authContext.jsx";
-import "./Login.css";
+import { useContext } from "react";
+import { useForm } from "../../hooks/useForm";
+import AuthContext from "../../context/AuthContext.jsx";
+import "../Register/Sign.css";
 
 const Login = () => {
-  const [errors, setErrors] = useState("");
-  const [isLoading, setIsLoading] = useState(false);
+  const { loginSubmitHandler } = useContext(AuthContext);
 
-  const { onLoginSubmit, serverErrors } = useAuthContext(); 
-
-  const { values, onChange, onSubmit } = useForm(onLoginSubmit, {
+  const { values, onChange, onSubmit } = useForm(loginSubmitHandler, {
     email: "",
-    password: ""
+    password: "",
   });
 
   return (
-    <div className="loginContainer">
-      <div className="form">
-        <h1>Login</h1>
+    <div className="sign-container">
+      <div className="sign-form">
+        <h1 className="sign-mark">Login</h1>
         <form onSubmit={onSubmit}>
           <label>Email</label>
           <input
@@ -26,23 +23,11 @@ const Login = () => {
             value={values.email}
             name="email"
             onChange={onChange}
-            pattern="^[a-zA-Z0-9\.-]{4,}@[a-z]+\.[a-z]+$"
             required
           />
-          <p className="error" style={{ display: values.email ? "none" : "block" }}>
-            Email is required!
-          </p>
-          <p
-            className="error"
-            style={{
-              display:
-                values.email && !/^[a-zA-Z0-9\.-]{4,}@[a-z]+\.[a-z]+$/.test(values.email)
-                  ? "block"
-                  : "none",
-            }}
-          >
-            Email should be valid!
-          </p>
+          {values.email && !values.email.includes("@") && (
+            <span>Email should be valid!</span>
+          )}
 
           <label>Password</label>
           <input
@@ -52,33 +37,10 @@ const Login = () => {
             name="password"
             onChange={onChange}
             required
-            minLength="6"
-            maxLength="12"
           />
-          <p className="error" style={{ display: values.password ? "none" : "block" }}>
-            Password is required!
-          </p>
-          <p
-            className="error"
-            style={{
-              display: values.password && values.password.length < 6 ? "block" : "none",
-            }}
-          >
-            Password should have more than 6 characters!
-          </p>
-          <p
-            className="error"
-            style={{
-              display: values.password && values.password.length > 12 ? "block" : "none",
-            }}
-          >
-            Password should have less than 12 characters!
-          </p>
-
-          {errors && <p className="mainerror">{errors}</p>}
 
           <input
-            disabled={values.email === "" || values.password === "" || isLoading}
+            disabled={!values.email.includes("@") || values.password === ""}
             type="submit"
             value="Login"
             id="loginBtn"
@@ -86,10 +48,9 @@ const Login = () => {
           />
         </form>
 
-        <p className="text">
+        <div className="sign-info">
           Don't have an account yet? <a href="/register">Register here</a>
-        </p>
-
+        </div>
       </div>
     </div>
   );

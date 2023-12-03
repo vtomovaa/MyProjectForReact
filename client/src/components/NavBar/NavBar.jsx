@@ -1,17 +1,12 @@
 import { NavLink } from "react-router-dom";
 import "./NavBar.css";
-import { useState } from "react";
-import { useAuthContext } from "../../context/AuthContext";
+import { useContext, useState } from "react";
+import AuthContext from "../../context/AuthContext.jsx";
+import Path from "../../paths.js";
 
 const NavBar = () => {
-
   const [view, setView] = useState(false);
-  const { isAuthenticated, onLogout } = useAuthContext(); 
-  const logout = () => {
-    //when we have server
-    
-    onLogout();
-  };
+  const { isAuthenticated } = useContext(AuthContext);
 
   const menuClick = () => {
     setView(!view);
@@ -24,26 +19,33 @@ const NavBar = () => {
   return (
     <div className="header">
       <NavLink to="/">
-        <div className="logo">
-        </div>
+        <div className="logo"></div>
       </NavLink>
 
       <div className="main">
         <ul>
-          <li><NavLink to="/">Home</NavLink></li>
+          <li>
+            <NavLink to="/">Home</NavLink>
+          </li>
           {/* <a href="" className="icon">
             <i className="fa fa-bars"></i>
           </a> */}
-          <li><NavLink to="/all-orchids">All Orchids</NavLink></li>
-          {isAuthenticated && <li><NavLink to="/add">Add Orchid</NavLink></li>}
+          <li>
+            <NavLink to="/all-orchids">All Orchids</NavLink>
+          </li>
+          {isAuthenticated && (
+            <li>
+              <NavLink to={Path.CreateOrchid}>Add Orchid</NavLink>
+            </li>
+          )}
         </ul>
       </div>
-      
+
       <div className="auth">
         <ul>
           {isAuthenticated ? (
             <div className="dropdown">
-              <button className="dropbtn">Profile. . .</button>
+              <button className="dropbtn btns">Profile. . .</button>
               <div className="dropdown-content">
                 <NavLink to="/my-orchids">My Orchids</NavLink>
                 <NavLink to="/favorites-profile">My Favorite Orchids</NavLink>
@@ -52,13 +54,21 @@ const NavBar = () => {
             </div>
           ) : (
             <>
-              <li><NavLink to="/login">Login</NavLink></li>
-              <li><NavLink to="/register">Register</NavLink></li>
+              <li>
+                <NavLink to="/login">Login</NavLink>
+              </li>
+              <li>
+                <NavLink to="/register">Register</NavLink>
+              </li>
             </>
           )}
-          <NavLink to="">
-          {isAuthenticated && <li><div onClick={logout}>Logout</div></li>}
-          </NavLink>
+          {isAuthenticated && (
+            <li>
+              <NavLink to="/logout">
+                <div>Logout</div>
+              </NavLink>
+            </li>
+          )}
         </ul>
       </div>
 

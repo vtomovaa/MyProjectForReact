@@ -11,7 +11,7 @@
 
 .container h2 {
     position: relative;
-    top: 81%;
+    top: 76%;
     text-align: center;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -51,5 +51,5 @@
 }
 .container button:hover {
     background-color: #ff008c;
-    margin-bottom: 110px;
+    /* margin-bottom: 110px; */
 }

@@ -1,15 +1,19 @@
-import { requestFactory } from "./requester";
+import * as request from '../lib/request';
 
-const baseUrl = `http://localhost:3030/users`;
+const baseUrl = 'http://localhost:3030/users';
 
-export const authServiceFactory = (token) => {
-  const request = requestFactory(token);
-  
-  return {
-    login: (loginData) => request.post(`${baseUrl}/login`, loginData),
-    register: (registerData) =>
-      request.post(`${baseUrl}/register`, registerData),
-    logout: () => request.get(`${baseUrl}/logout`),
-    getMyProfile: () => request.get(`${baseUrl}/me`),
-  };
+export const login = async (email, password) => {
+    const result = await request.post(`${baseUrl}/login`, {
+        email,
+        password,
+    });
+
+    return result;
 };
+
+export const register = (email, password) => request.post(`${baseUrl}/register`, {
+    email,
+    password,
+});
+
+export const logout = () => request.get(`${baseUrl}/logout`);

@@ -1,0 +1,106 @@
+.add-orchid-container {
+    background-color: #a8a58a;
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    position: relative;
+    height: calc(100vh - 5.4rem);
+  }
+  
+  .add-orchid-form {
+    border: 2px solid #4745353a;
+    border-radius: 1.2rem;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #a8a58a;
+    width: 360px;
+    color: white;
+    box-shadow: 15px 15px 25px rgb(32, 32, 32);
+  }
+  
+  .add-orchid-label {
+    margin-top: 0.7rem;
+    text-align: center;
+  }
+  
+  .add-form-title {
+    display: flex;
+    margin-top: 10px;
+    margin-bottom: 2.5px;
+    font-size: 1.1rem;
+    padding-left: 0.7rem;
+  }
+  .add-form-input {
+    width: 21.5rem;
+    height: 1.9rem;
+    padding-left: 12px;
+    border: none;
+    border: 1px solid gray;
+    border-radius: 8px;
+    margin-left: 0.5rem;
+  }
+  
+  input[type="submit"] {
+    margin-left: 50%;
+    transform: translate(-50%, -50%);
+    width: 15rem;
+    height: 2rem;
+    margin-top: 40px;
+    border: none;
+    background-color: #ff008ca2;
+    color: white;
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+  input[type="submit"]:hover:enabled {
+    background-color: #ff008c;
+    opacity: 0.5;
+  }
+  
+  input:disabled {
+    border: 1px solid #999999;
+    background-color: #cccccc;
+  }
+  
+  .form-textarea {
+    min-height: 7em;
+    font-size: 26px;
+  }
+  
+  @media only screen and (max-height: 740px) {
+    .form-textarea {
+      min-height: 5em;
+    }
+  }
+  
+  @media only screen and (max-width: 930px) {
+    .add-orchid-form {
+      left: 50%;
+    }
+    .add-orchid-form h1 {
+      font-size: 1.5rem;
+    }
+    .add-orchid-form label {
+      font-size: 1rem;
+    }
+  }
+  @media only screen and (max-width: 480px) {
+    .add-orchid-container {
+      height: 100vh;
+      width: 100%;
+    }
+    .add-orchid-form {
+      width: 90%;
+    }
+    .add-form-input {
+      width: 90%;
+    }
+  }
+  @media only screen and (max-width: 777px) {
+    .add-orchid-container {
+      height: calc(100vh - 6.4rem);
+    }
+  }
+  

@@ -15,7 +15,7 @@ const OrchidDetailsCard = ( props ) => {
 
       <div className="info">
         <h1>{name}</h1>
-        <Link to={`/all-orchids/${_id}`}>Details</Link>
+        <button className='btns'><Link className='details-card-btn' to={`/all-orchids/${_id}`}>Details</Link></button>
       </div>
     </article>
   );

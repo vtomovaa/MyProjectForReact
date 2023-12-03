@@ -1,36 +1,60 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import "./OrchidDetails.css";
-import { useAuthContext } from "../../../context/AuthContext.jsx";
 
 import orchids from "../../../../../server/data/orchids.json";
-import { useParams } from "react-router-dom";
+import { Navigate, useParams } from "react-router-dom";
+import AuthContext from "../../../context/AuthContext";
+import * as orchidService from "../../../services/orchidService.jsx";
+import Path from "../../../paths.js";
+import { useEffect } from "react";
 
 const OrchidDetails = ({
-  isAuthor,
-  errors,
   editOrchid,
-  deleteOrchid,
-  addToFavourite,
-  removeFromFavourites,
+  // addToFavourite,
+  // removeFromFavourites,
 }) => {
-  const params = useParams();
-  const { userEmail } = useAuthContext();
+  const [allOrchids, setAllOrchids] = useState(orchids);
 
-  console.log(params.orchidId);
+  useEffect(() => {
+    orchidService
+      .getAll()
+      .then((result) =>
+        setAllOrchids((prevOrchids) => [...prevOrchids, ...result])
+      )
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
+
+  const params = useParams();
+  const { email } = useContext(AuthContext);
+
   const [imageUrl, setImageUrl] = useState("");
 
-  const onChange = (event) => {
-    setImageUrl(event.target.value);
-  };
-
-  const orchid = orchids.filter((orchid) => orchid._id === params.orchidId);
-  // const inEditMode = orchid[0]?.owner === userEmail;
+  const orchid = allOrchids.filter(
+    (orchid) => orchid._id === params.orchidId
+  )[0];
+  // const inEditMode = orchid[0]?.owner === email;
   const inEditMode = true;
   const alreadyFavourite = true;
+
+  const deleteButtonClickHandler = async (orchidId, orchidMake) => {
+    console.log(orchidId, orchidMake);
+    const hasConfirmed = confirm(
+      `Are you sure you want to delete ${orchidMake}`
+    );
+
+    if (hasConfirmed) {
+      await orchidService.remove(orchidId);
+
+      Navigate(Path.AllOrchids);
+    }
+  };
+
   return (
     <div className="orchid-details-container">
       {orchid && (
-        <div className="title">
+        <div className="orchid-details-title">
           <h1>Details Page</h1>
         </div>
       )}
@@ -38,10 +62,10 @@ const OrchidDetails = ({
       {orchid && (
         <article className="orchid">
           <div className="image">
-            { <img src={orchid.imageUrl} alt="no-img" />}
+            {<img src={orchid.imageUrl} alt="no-img" />}
           </div>
           <div className="info">
-            {alreadyFavourite && <span className="added">&check;</span>}
+           
             <h1>{orchid.make}</h1>
             <hr />
             <h3>
@@ -57,37 +81,39 @@ const OrchidDetails = ({
                   <button onClick={() => editOrchid(orchid, imageUrl)}>
                     Edit
                   </button>
-                  <button onClick={() => deleteOrchid(orchid._id)}>
+                  <button
+                    onClick={() =>
+                      deleteButtonClickHandler(orchid._id, orchid.make)
+                    }
+                  >
                     Delete
                   </button>
                 </>
               )}
-              {!alreadyFavourite && (
+              {/* {!alreadyFavourite && (
                 <button onClick={() => addToFavourite()}>
                   Add to favourite
                 </button>
-              )}
-              {alreadyFavourite && (
+              )} */}
+              {/* {alreadyFavourite && (
                 <>
-                  {/* <button id="added">Added to favourites</button> */}
                   <button id="remove" onClick={() => removeFromFavourites()}>
                     Remove from favourites
                   </button>
                 </>
-              )}
+              )} */}
             </div>
-            <p className="mainError">{errors}</p>
           </div>
         </article>
       )}
-
+{/* 
       {inEditMode && orchid && (
-        <div className="title">
+        <div className="orchid-details-title">
           <h1>Edit Orchid</h1>
         </div>
-      )}
+      )} */}
 
-      {/* {inEditMode && orchid && (
+      {inEditMode && orchid && (
         <div className="form">
           <h1 className="h1">Edit Orchid</h1>
           <form onSubmit={(e) => editOrchid(e, orchid, imageUrl)}>
@@ -166,7 +192,7 @@ const OrchidDetails = ({
               value={orchid.description}
               onChange={() => {}}
             />
-            <p className="mainError">{errors}</p>
+            
             <input
               type="submit"
               value="Edit Orchid"
@@ -179,7 +205,7 @@ const OrchidDetails = ({
             />
           </form>
         </div>
-      )} */}
+      )}
     </div>
   );
 };
