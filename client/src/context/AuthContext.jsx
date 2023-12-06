@@ -47,7 +47,7 @@ export const AuthProvider = ({ children }) => {
     setAuth({});
     localStorage.removeItem("accessToken");
   };
-  console.log(auth);
+  
   const values = {
     loginSubmitHandler,
     registerSubmitHandler,
