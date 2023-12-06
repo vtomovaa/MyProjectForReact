@@ -5,8 +5,7 @@ import { useContext } from "react";
 import "./Sign.css";
 
 const Register = () => {
-  const { registerSubmitHandler } = useContext(AuthContext);
-
+  const { registerSubmitHandler, serverErrors } = useContext(AuthContext);
   const { values, onChange, onSubmit } = useForm(registerSubmitHandler, {
     username: "",
     email: "",
@@ -31,7 +30,7 @@ const Register = () => {
           <input
             type="text"
             name="avatar"
-            value= {values.avatar}
+            value={values.avatar}
             onChange={onChange}
             placeholder="Avatar..."
           />
@@ -84,6 +83,14 @@ const Register = () => {
           />
           {values.rePass && values.rePass !== values.password && (
             <span>Passwords must be equal!</span>
+          )}
+
+          {serverErrors?.register && (
+            <div>
+            <span>
+              {serverErrors?.register?.message}
+            </span>
+            </div>
           )}
 
           <input

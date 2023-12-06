@@ -4,7 +4,7 @@ import AuthContext from "../../context/AuthContext.jsx";
 import "../Register/Sign.css";
 
 const Login = () => {
-  const { loginSubmitHandler } = useContext(AuthContext);
+  const { loginSubmitHandler, serverErrors } = useContext(AuthContext);
 
   const { values, onChange, onSubmit } = useForm(loginSubmitHandler, {
     email: "",
@@ -38,6 +38,12 @@ const Login = () => {
             onChange={onChange}
             required
           />
+
+          {serverErrors?.login && (
+            <div>
+              <span>{serverErrors?.login?.message}</span>
+            </div>
+          )}
 
           <input
             disabled={!values.email.includes("@") || values.password === ""}

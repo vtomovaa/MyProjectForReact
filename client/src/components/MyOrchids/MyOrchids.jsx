@@ -1,22 +1,21 @@
 import "./MyOrchids.css";
-import * as orchidService from "../../services/orchidService.jsx";
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect } from "react";
 import AuthContext from "../../context/AuthContext.jsx";
+import { useOrchidsData } from "../../hooks/useOrchidsData.js";
+import { Link } from "react-router-dom";
+
 
 const MyOrchid = () => {
     const { email } = useContext(AuthContext);
 
-   const [orchids, setOrchids] = useState([]);
+    const { orchidsData, fetchOrchids } = useOrchidsData();
 
     useEffect(() => {
-        orchidService.getAll()
-            .then(result => setOrchids(result))
-            .catch(err => {
-                console.log(err);
-            });
+      fetchOrchids();
     }, []);
+  
 
-    const myOrchids = orchids.filter(
+    const myOrchids = orchidsData.filter(
         (orchid) => orchid.owner === email);
         
   return (
@@ -57,7 +56,8 @@ const MyOrchid = () => {
               )}
               <div className="info">
                 <h1>{orchid.type}</h1>
-                <button onClick={() => onPageChange(orchid._id)}>Details</button>
+                <button className='btns'><Link className='details-card-btn' to={`/all-orchids/${orchid._id}`}>Details</Link></button>
+
               </div>
             </article>
           ))

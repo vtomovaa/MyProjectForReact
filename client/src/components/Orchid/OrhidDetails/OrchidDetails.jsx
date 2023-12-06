@@ -1,41 +1,26 @@
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import "./OrchidDetails.css";
-import orchids from "../../../../../server/data/orchids.json";
 import { NavLink, useNavigate, useParams } from "react-router-dom";
 import AuthContext from "../../../context/AuthContext";
 import * as orchidService from "../../../services/orchidService.jsx";
 import Path from "../../../paths.js";
 import { useEffect } from "react";
+import { useOrchidsData } from "../../../hooks/useOrchidsData.js";
 
 const OrchidDetails = () => {
-  const [allOrchids, setAllOrchids] = useState(orchids);
-
   useEffect(() => {
-    orchidService
-      .getAll()
-      .then((result) =>
-        setAllOrchids((prevOrchids) => [...prevOrchids, ...result])
-      )
-      .catch((err) => {
-        console.log(err);
-      });
+    fetchOrchids();
   }, []);
 
-  const params = useParams();
   const navigate = useNavigate();
+  const params = useParams();
+  const { fetchOrchids, getOrchidById, isInEditMode } = useOrchidsData();
   const { email } = useContext(AuthContext);
-
-  const [imageUrl, setImageUrl] = useState("");
-
-  const orchid = allOrchids.filter(
-    (orchid) => orchid._id === params.orchidId
-  )[0];
-  const inEditMode = orchid?.owner === email;
-
-  console.log(orchid);
+  const id = params.orchidId;
+  const orchid = getOrchidById(id);
+  const inEditMode = isInEditMode(orchid?.owner, email);
 
   const deleteButtonClickHandler = async () => {
-
     const hasConfirmed = confirm(
       `Are you sure you want to delete ${orchid?.make}`
     );
@@ -73,14 +58,10 @@ const OrchidDetails = () => {
               <button onClick={() => window.history.back()}>Back</button>
               {inEditMode && (
                 <>
-                  <NavLink to={`/all-orchids/${orchid._id}/edit`}><button>Edit</button></NavLink>
-                  <button
-                    onClick={
-                      deleteButtonClickHandler
-                    }
-                  >
-                    Delete
-                  </button>
+                  <NavLink to={`/all-orchids/${orchid._id}/edit`}>
+                    <button>Edit</button>
+                  </NavLink>
+                  <button onClick={deleteButtonClickHandler}>Delete</button>
                 </>
               )}
             </div>

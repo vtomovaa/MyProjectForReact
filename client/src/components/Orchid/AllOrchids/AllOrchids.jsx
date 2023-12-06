@@ -1,21 +1,14 @@
 import OrchidDetailsCard from "../OrchidDetailsCard/OrchidDetailsCard.jsx";
 import "./AllOrchids.css";
 import orchids from "../../../../../server/data/orchids.json";
-import { useEffect, useState } from "react";
-import * as orchidService from "../../../services/orchidService.jsx";
+import { useEffect } from "react";
+import { useOrchidsData } from "../../../hooks/useOrchidsData.js";
 
 const AllOrchids = () => {
-  const [allOrchids, setAllOrchids] = useState(orchids);
+  const { orchidsData, fetchOrchids } = useOrchidsData();
 
   useEffect(() => {
-    orchidService
-      .getAll()
-      .then((result) =>
-        setAllOrchids((prevOrchids) => [...prevOrchids, ...result])
-      )
-      .catch((err) => {
-        console.log(err);
-      });
+    fetchOrchids();
   }, []);
 
   return (
@@ -27,9 +20,9 @@ const AllOrchids = () => {
           <h1>NO ORCHIDS ADDED!</h1>
         )}
       </div>
-      {allOrchids && (
+      {orchidsData && (
         <section className="orchidsSection">
-          {allOrchids.map((orchid) => (
+          {orchidsData.map((orchid) => (
             <OrchidDetailsCard key={orchid._id} {...orchid} />
           ))}
         </section>

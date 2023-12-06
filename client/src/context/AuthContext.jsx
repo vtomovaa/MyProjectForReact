@@ -1,4 +1,4 @@
-import { createContext } from "react";
+import { createContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import * as authService from "../services/authService";
@@ -10,34 +10,44 @@ const AuthContext = createContext();
 export const AuthProvider = ({ children }) => {
   const navigate = useNavigate();
   const [auth, setAuth] = usePersistedState("auth", {});
-
-  console.log(auth);
+  const [serverErrors, setServerErrs] = useState({});
+  let errors = {};
 
   const loginSubmitHandler = async (values) => {
-    const result = await authService.login(values.email, values.password);
+    try {
+      const result = await authService.login(values.email, values.password);
 
-    setAuth(result);
+      setAuth(result);
 
-    localStorage.setItem("accessToken", result.accessToken);
+      localStorage.setItem("accessToken", result.accessToken);
 
-    navigate(Path.Home);
+      navigate(Path.Home);
+    } catch (error) {
+      errors.login = error;
+      setServerErrs(errors);
+    }
   };
 
   const registerSubmitHandler = async (values) => {
-    const result = await authService.register(values.email, values.password);
+    try {
+      const result = await authService.register(values.email, values.password);
 
-    setAuth(values);
+      setAuth({ ...result, avatar: values.avatar, username: values.username });
 
-    localStorage.setItem("accessToken", result.accessToken);
+      localStorage.setItem("accessToken", result.accessToken);
 
-    navigate(Path.Home);
+      navigate(Path.Home);
+    } catch (error) {
+      errors.register = error;
+      setServerErrs(errors);
+    }
   };
 
   const logoutHandler = () => {
     setAuth({});
     localStorage.removeItem("accessToken");
   };
-
+  console.log(auth);
   const values = {
     loginSubmitHandler,
     registerSubmitHandler,
@@ -47,6 +57,7 @@ export const AuthProvider = ({ children }) => {
     userId: auth._id,
     isAuthenticated: !!auth.accessToken,
     avatar: auth.avatar,
+    serverErrors,
   };
 
   return <AuthContext.Provider value={values}>{children}</AuthContext.Provider>;
