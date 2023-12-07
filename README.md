@@ -16,12 +16,12 @@ as well they have the ability to Edit/Delete their own orchids and Add/Remove fr
 # To run the app, in directory "Client", open terminal and run:
 
 - npm install
-- npm start
+- npm run dev
 - Which opens the app at http://localhost:3000 in your browser.
   
 # Also should run REST_API server.
 
 - Open directory "server", open inside terminal and run:
-- node .\server.js
+- node server.js
 - And the server will start listening at http://localhost:3030.
 
