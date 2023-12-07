@@ -25,9 +25,20 @@
     text-align: center;
 }
 
+.sign-warning {
+    position: relative;
+    background-color: transparent;
+    width: 422px;
+    color: red;
+}
+
+.sign-warning-none {
+    display: none;
+}
+
 label {
     display: flex;
-    margin-top: 20px;
+    margin-top: 5px;
     margin-bottom: 5px;
     font-size: 1.1rem;
     padding-left: 0.7rem;

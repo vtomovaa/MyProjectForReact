@@ -11,6 +11,8 @@ const Login = () => {
     password: "",
   });
 
+  console.log(serverErrors);
+
   return (
     <div className="sign-container">
       <div className="sign-form">
@@ -26,7 +28,7 @@ const Login = () => {
             required
           />
           {values.email && !values.email.includes("@") && (
-            <span>Email should be valid!</span>
+            <p className="sign-warning">Email should be valid!</p>
           )}
 
           <label>Password</label>
@@ -41,9 +43,10 @@ const Login = () => {
 
           {serverErrors?.login && (
             <div>
-              <span>{serverErrors?.login?.message}</span>
+              <p className="sign-warning">{serverErrors?.login?.message}</p>
             </div>
           )}
+
 
           <input
             disabled={!values.email.includes("@") || values.password === ""}

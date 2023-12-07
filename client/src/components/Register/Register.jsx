@@ -45,7 +45,7 @@ const Register = () => {
           />
           {values.username &&
             (values.username.length < 4 || values.username.length > 10) && (
-              <span>Username should have 4 characters!</span>
+              <p className="sign-warning">Username should have 4 characters!</p>
             )}
 
           <label>Email</label>
@@ -57,7 +57,7 @@ const Register = () => {
             onChange={onChange}
           />
           {values.email && !values.email.includes("@") && (
-            <span>Email should be valid!</span>
+            <p className="sign-warning">Email should be valid!</p>
           )}
 
           <label>Password</label>
@@ -70,7 +70,7 @@ const Register = () => {
           />
           {values.password &&
             (values.password.length < 6 || values.password.length > 12) && (
-              <span>Password should have between 7 and 11 characters!</span>
+              <p className="sign-warning">Should have between 7 and 11 characters!</p>
             )}
 
           <label>Confirm Password</label>
@@ -82,14 +82,14 @@ const Register = () => {
             onChange={onChange}
           />
           {values.rePass && values.rePass !== values.password && (
-            <span>Passwords must be equal!</span>
+            <p className="sign-warning">Passwords must be equal!</p>
           )}
 
           {serverErrors?.register && (
             <div>
-            <span>
+            <p className="sign-warning">
               {serverErrors?.register?.message}
-            </span>
+            </p>
             </div>
           )}
 

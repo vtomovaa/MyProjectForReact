@@ -1,14 +1,12 @@
-import { useContext, useReducer } from "react";
+import { useContext } from "react";
 import "./OrchidDetails.css";
 import { NavLink, useNavigate, useParams } from "react-router-dom";
 import AuthContext from "../../../context/AuthContext";
-import * as orchidService from "../../../services/orchidService.jsx";
+import * as orchidService from "../../../services/orchidService.js";
 import Path from "../../../paths.js";
 import { useEffect } from "react";
 import { useOrchidsData } from "../../../hooks/useOrchidsData.js";
-import { useForm } from "../../../hooks/useForm.js";
-import reducer from "./reducer.js";
-import * as commentService from "../../../services/commentService.js";
+import Comments from "../../Comments/Comments.jsx";
 
 const OrchidDetails = () => {
   useEffect(() => {
@@ -36,32 +34,6 @@ const OrchidDetails = () => {
     }
   };
 
-  const addCommentHandler = async (values) => {
-    const newComment = await commentService.create(id, values.comment);
-
-    newComment.owner = { email };
-
-    dispatch({
-      type: "ADD_COMMENT",
-      payload: newComment,
-    });
-  };
-
-  const { values, onChange, onSubmit } = useForm(addCommentHandler, {
-    comment: "",
-  });
-
-  const [comments, dispatch] = useReducer(reducer, []);
-
-  useEffect(() => {
-    commentService.getAll(id).then((result) => {
-      dispatch({
-        type: "GET_ALL_COMMENTS",
-        payload: result,
-      });
-    });
-  }, [id]);
-  console.log(comments);
   return (
     <div className="orchid-details-container">
       {orchid && (
@@ -98,35 +70,7 @@ const OrchidDetails = () => {
               </div>
             </div>
           </article>
-
-          <article className="orchid">
-            
-            <form onSubmit={onSubmit}>
-              <label htmlFor="summary">Comments:</label>
-              <textarea
-                name="comment"
-                className=" add-form-input form-textarea add-comment"
-                placeholder="Add comment..."
-                value={values.comment}
-                onChange={onChange}
-              ></textarea>
-            </form>
-            <div>
-            {comments.length === 0 ? "No comments" :
-              comments.map(({ _id, text, owner: { email } }) => (
-                <div key={_id} className="comment">
-                  <h4>
-                   
-                    {email}: {text}
-                  </h4>
-                </div>
-              ))
-}
-            </div>
-            <div className="buttons">
-              <button onClick={onSubmit}>Add Comment</button>
-            </div>
-          </article>
+          <Comments id={id} email={email} />
         </div>
       )}
     </div>

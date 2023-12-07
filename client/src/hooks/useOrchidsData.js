@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import * as orchidService from "../services/orchidService.jsx";
+import * as orchidService from "../services/orchidService.js";
 import orchids from "../../../server/data/orchids.json";
 
 

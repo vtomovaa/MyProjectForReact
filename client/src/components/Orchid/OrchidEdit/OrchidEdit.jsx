@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import * as orchidService from "../../../services/orchidService.jsx";
+import * as orchidService from "../../../services/orchidService.js";
 import "../OrhidDetails/OrchidDetails.jsx";
 import AuthContext from "../../../context/AuthContext.jsx";
 

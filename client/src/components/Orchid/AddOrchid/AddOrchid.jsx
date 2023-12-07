@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import * as orchidService from "../../../services/orchidService.jsx";
+import * as orchidService from "../../../services/orchidService.js";
 import "./AddOrchid.css";
 import Path from "../../../paths.js";
 import { useContext } from "react";

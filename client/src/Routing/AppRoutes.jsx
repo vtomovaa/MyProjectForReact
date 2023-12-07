@@ -57,9 +57,9 @@ const AppRoutes = () => {
     <div className="app-routes">
       <NavBar />
 
-      <Routes element={<AuthGuard />}>
+      <Routes >
         {generateRoutes()}
-        <Route>
+        <Route element={<AuthGuard />}>
           <Route path={Path.CreateOrchid} element={<AddOrchid />} />
           <Route path={Path.OrchidEdit} element={<OrchidEdit />} />
           <Route path={Path.Logout} element={<Logout />} />
