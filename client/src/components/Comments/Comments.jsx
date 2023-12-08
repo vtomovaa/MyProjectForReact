@@ -3,8 +3,10 @@ import { useForm } from "../../hooks/useForm.js";
 import reducer from "./reducer.js";
 import * as commentService from "../../services/commentService.js";
 import "./Comments.css";
+import { NavLink } from "react-router-dom";
+import Path from "../../paths.js";
 
-const Comments = ({ id, email }) => {
+const Comments = ({ id, email, isAuthenticated }) => {
   const addCommentHandler = async (values) => {
     const newComment = await commentService.create(id, values.comment);
 
@@ -55,7 +57,13 @@ const Comments = ({ id, email }) => {
             ))}
       </div>
       <div className="buttons">
-        <button onClick={onSubmit}>Add Comment</button>
+            {isAuthenticated ? (
+              <button onClick={onSubmit}>Add Comment</button>
+            ) : (
+              <NavLink to={Path.Login}>
+                <button>Log in first</button>
+              </NavLink>
+            )}
       </div>
     </article>
   );

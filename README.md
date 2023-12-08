@@ -5,7 +5,7 @@ SPA project made for educational purpose with React for FE and softuni-practice-
 # General Information:
 ```
 - The main purpose of the app is to view/add orchids.
-- Guests are only able to see Home Page, All Orchids, Orchid Details and to comment orchid.
+- Guests are only able to see Home Page, All Orchids, Orchid Details.
 - Logged in users have access to Add Orchid, Leave a comment and Profile information,
 as well as they have the ability to Edit/Delete their own orchids.
 - View own collection "My Orchids"
@@ -16,7 +16,7 @@ as well as they have the ability to Edit/Delete their own orchids.
 
 - npm install
 - npm run dev
-- Which opens the app at http://localhost:3000 in your browser.
+- Which opens the app at http://localhost:5173/ in your browser.
   
 # Also should run REST_API server.
 

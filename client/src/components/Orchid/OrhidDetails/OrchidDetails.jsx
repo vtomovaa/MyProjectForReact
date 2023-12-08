@@ -16,7 +16,7 @@ const OrchidDetails = () => {
   const navigate = useNavigate();
   const params = useParams();
   const { fetchOrchids, getOrchidById, isInEditMode } = useOrchidsData();
-  const { email } = useContext(AuthContext);
+  const { email, isAuthenticated } = useContext(AuthContext);
   const id = params.orchidId;
   const orchid = getOrchidById(id);
   const inEditMode = isInEditMode(orchid?.owner, email);
@@ -70,7 +70,7 @@ const OrchidDetails = () => {
               </div>
             </div>
           </article>
-          <Comments id={id} email={email} />
+          <Comments id={id} email={email} isAuthenticated={isAuthenticated}/>
         </div>
       )}
     </div>

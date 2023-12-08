@@ -4,7 +4,7 @@ import "./Profile.css"
 
 const Profile = () => {
   const { username, email, avatar } = useContext(AuthContext);
-  console.log(avatar);
+  
   return (
   <div className="my-profile-container">
     <div>

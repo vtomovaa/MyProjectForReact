@@ -11,8 +11,6 @@ const Login = () => {
     password: "",
   });
 
-  console.log(serverErrors);
-
   return (
     <div className="sign-container">
       <div className="sign-form">
