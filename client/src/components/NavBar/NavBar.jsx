@@ -18,20 +18,17 @@ const NavBar = () => {
 
   return (
     <div className="header">
-      <NavLink to="/">
+      <NavLink to={Path.Home}>
         <div className="logo"></div>
       </NavLink>
 
       <div className="main">
         <ul>
           <li>
-            <NavLink to="/">Home</NavLink>
+            <NavLink to={Path.Home}>Home</NavLink>
           </li>
-          {/* <a href="" className="icon">
-            <i className="fa fa-bars"></i>
-          </a> */}
           <li>
-            <NavLink to="/all-orchids">All Orchids</NavLink>
+            <NavLink to={Path.AllOrchids}>All Orchids</NavLink>
           </li>
           {isAuthenticated && (
             <li>
@@ -47,53 +44,29 @@ const NavBar = () => {
             <div className="dropdown">
               <button className="dropbtn btns">Profile. . .</button>
               <div className="dropdown-content">
-                <NavLink to="/my-orchids">My Orchids</NavLink>
-                <NavLink to="/profile">Profile Info</NavLink>
+                <NavLink to={Path.MyOrchids}>My Orchids</NavLink>
+                <NavLink to={Path.Profile}>Profile Info</NavLink>
               </div>
             </div>
           ) : (
             <>
               <li>
-                <NavLink to="/login">Login</NavLink>
+                <NavLink to={Path.Login}>Login</NavLink>
               </li>
               <li>
-                <NavLink to="/register">Register</NavLink>
+                <NavLink to={Path.Register}>Register</NavLink>
               </li>
             </>
           )}
           {isAuthenticated && (
             <li>
-              <NavLink to="/logout">
+              <NavLink to={Path.Logout}>
                 <div>Logout</div>
               </NavLink>
             </li>
           )}
         </ul>
       </div>
-
-      {/* <div className="mobile" style={view ? {} : { display: 'none' }}>
-        <NavLink to="/">Home</NavLink>
-        <NavLink to="/all-orchids">All Orchids</NavLink>
-        {isAuthenticated && <NavLink to="/add">Add Orchid</NavLink>}
-        {isAuthenticated && <NavLink to="/profile">My Orchids</NavLink>}
-        {isAuthenticated && <NavLink to="/favorites-profile">My Favorite Orchids</NavLink>}
-        {isAuthenticated && <NavLink to="/profile-info">Profile Info</NavLink>}
-      </div> */}
-
-      {/* <div className="authorization">
-        {!isAuthenticated ? (
-          <>
-            <NavLink to="/login">Login</NavLink>
-            <NavLink to="/register">Register</NavLink>
-          </>
-        ) : (
-          <NavLink to="/logout" onClick={logout}>Logout</NavLink>
-        )}
-      </div> */}
-
-      {/* <a href="" onClick={menuClick} className="icon">
-        <i className="fa fa-bars">heloo</i>
-      </a> */}
     </div>
   );
 };

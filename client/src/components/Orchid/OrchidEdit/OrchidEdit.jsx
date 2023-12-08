@@ -33,7 +33,6 @@ const OrchidEdit = () => {
 
     formData.set("owner", email);
     const values = Object.fromEntries(formData);
-    console.log(values);
 
     try {
       await orchidService.edit(orchidId, values);
