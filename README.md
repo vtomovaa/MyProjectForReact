@@ -14,6 +14,7 @@ as well as they have the ability to Edit/Delete their own orchids.
 ### Setup
 # To run the app, in directory "Client", open terminal and run:
 
+- npm create vite
 - npm install
 - npm run dev
 - Which opens the app at http://localhost:5173/ in your browser.

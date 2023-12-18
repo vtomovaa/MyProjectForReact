@@ -70,7 +70,11 @@ const OrchidDetails = () => {
               </div>
             </div>
           </article>
-          <Comments id={id} email={email} isAuthenticated={isAuthenticated}/>
+          <Comments
+            id={id}
+            loggedInUser={email}
+            isAuthenticated={isAuthenticated}
+          />
         </div>
       )}
     </div>
