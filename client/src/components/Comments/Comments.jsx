@@ -62,7 +62,7 @@ const Comments = ({ id, loggedInUser, isAuthenticated }) => {
     }
   };
 
-  const editCommentButtonOnClick = async (commentId, recipeId) => {
+  const editCommentButtonOnClick = async (commentId, idOrchid) => {
     try {
       const hasConfirmedEditComment = confirm(
         `Are you sure you want to edit this comment?`
@@ -72,7 +72,7 @@ const Comments = ({ id, loggedInUser, isAuthenticated }) => {
         const newCommentText = prompt("Enter the new comment:");
         if (newCommentText !== null) {
           const editedComment = await commentService.editComment(
-            recipeId,
+            idOrchid,
             commentId,
             newCommentText
           );

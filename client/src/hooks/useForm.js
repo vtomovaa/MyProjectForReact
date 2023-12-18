@@ -5,10 +5,15 @@ export const useForm = (onSubmitHandler, initialValues) => {
 
   const onChange = (e) => {
     const { name, value } = e.target;
+     // Validate and remove spaces for specific fields
+     const sanitizedValue =
+     (name === 'username' || name === 'password' || name === 'rePass' || name === 'email')
+       ? value.replace(/\s/g, '')
+       : value;
 
         setValues({
         ...values,
-        [name]: value,
+        [name]: sanitizedValue,
       });
   };
 

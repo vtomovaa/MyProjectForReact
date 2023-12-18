@@ -2,9 +2,9 @@ import * as request from '../lib/request';
 
 const baseUrl = 'http://localhost:3030/data/comments';
 
-export const getAll = async (recipeId) => {
+export const getAll = async (idOrchid) => {
     const query = new URLSearchParams({
-        where: `recipeId="${recipeId}"`,
+        where: `idOrchid="${idOrchid}"`,
         load: `owner=_ownerId:users`,
     });
     const result = await request.get(`${baseUrl}?${query}`);
@@ -12,9 +12,9 @@ export const getAll = async (recipeId) => {
     return result;
 };
 
-export const create = async (recipeId, text) => {
+export const create = async (idOrchid, text) => {
     const newComments = await request.post(baseUrl, {
-        recipeId,
+        idOrchid,
         text,
     });
     return newComments;
@@ -40,7 +40,7 @@ export const delComment = async (commentId) => {
 };
 
 
-export const editComment = async (recipeId,commentId, newText) => {
+export const editComment = async (idOrchid,commentId, newText) => {
     const token = localStorage.getItem("accessToken");
     const editedComment = await fetch(`${baseUrl}/${commentId}`, {
         method: "PUT",
@@ -49,7 +49,7 @@ export const editComment = async (recipeId,commentId, newText) => {
             "X-Authorization": token,
         },
         
-        body: JSON.stringify({ text: newText, recipeId }),
+        body: JSON.stringify({ text: newText, idOrchid }),
     });
 
     if (!editedComment.ok) {
