@@ -14,56 +14,61 @@ import Profile from "../components/Profile/Profile";
 import AddOrchid from "../components/Orchid/AddOrchid/AddOrchid";
 import OrchidEdit from "../components/Orchid/OrchidEdit/OrchidEdit.jsx";
 import MyOrchids from "../components/MyOrchids/MyOrchids.jsx";
-
-const routes = [
-  {
-    path: Path.Home,
-    element: <Home />,
-  },
-  {
-    path: Path.Login,
-    element: <Login />,
-  },
-  {
-    path: Path.Register,
-    element: <Register />,
-  },
-  {
-    path: Path.AllOrchids,
-    element: <AllOrchids />,
-  },
-  {
-    path: Path.SingleOrchid,
-    element: <OrchidDetails />,
-  },
-  {
-    path: Path.Footer,
-    element: <Footer />,
-  },
-  {
-    path: Path.Error,
-    element: <ErrorPage />,
-  },
-];
-
-const generateRoutes = () => {
-  return routes.map((route) => (
-    <Route key={route.path} path={route.path} element={route.element} />
-  ));
-};
+import { useContext } from "react";
+import AuthContext from "../context/AuthContext.jsx";
 
 const AppRoutes = () => {
+  const { isAuthenticated } = useContext(AuthContext);
+
+  const routes = [
+    {
+      path: Path.Home,
+      element: <Home />,
+    },
+    {
+      path: Path.Login,
+      element: isAuthenticated ? <Home /> : <Login />,
+    },
+    {
+      path: Path.Register,
+      element: isAuthenticated ? <Home /> : <Register />,
+    },
+    {
+      path: Path.AllOrchids,
+      element: <AllOrchids />,
+    },
+    {
+      path: Path.SingleOrchid,
+      element: <OrchidDetails />,
+    },
+    {
+      path: Path.Footer,
+      element: <Footer />,
+    },
+    {
+      path: Path.Error,
+      element: <ErrorPage />,
+    },
+  ];
+
+  const generateRoutes = () => {
+    return routes.map((route) => (
+      <Route key={route.path} path={route.path} element={route.element} />
+    ));
+  };
+
   return (
     <div className="app-routes">
       <NavBar />
 
-      <Routes >
+      <Routes>
         {generateRoutes()}
         <Route element={<AuthGuard />}>
           <Route path={Path.CreateOrchid} element={<AddOrchid />} />
           <Route path={Path.OrchidEdit} element={<OrchidEdit />} />
           <Route path={Path.Logout} element={<Logout />} />
           <Route path={Path.Profile} element={<Profile />} />
+          <Route path={Path.MyOrchids} element={<MyOrchids />} />
           <Route path={Path.MyOrchids} element={<MyOrchids />} />
         </Route>
       </Routes>
