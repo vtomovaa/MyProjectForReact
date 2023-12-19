@@ -112,14 +112,14 @@ const Comments = ({ id, loggedInUser, isAuthenticated }) => {
           : comments.map(({ _id, text, owner: { email } }) => (
               <div key={_id} className="comment">
                 <h4>
-                  {loggedInUser}: {text}
+                  {email}: {text}
                 </h4>
-                {(email === loggedInUser || loggedInUser === orchid.owner) && (
+                {(email === loggedInUser) && (
                   <>
-                    <button onClick={() => editCommentButtonOnClick(_id, id)}>
+                    <button className="button-1" onClick={() => editCommentButtonOnClick(_id, id)}>
                       Edit Comment
                     </button>
-                    <button onClick={() => deleteCommentButtonOnClick(_id)}>
+                    <button className="button-1" onClick={() => deleteCommentButtonOnClick(_id)}>
                       Delete Comment
                     </button>
                   </>
